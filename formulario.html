@@ -48,6 +48,7 @@
     </div>
 
     <script>
+        // Lógica del Captcha y contador de palabras
         let a = Math.floor(Math.random() * 10) + 1;
         let b = Math.floor(Math.random() * 10) + 1;
         document.getElementById("pregunta").textContent = a + " + " + b;
@@ -62,11 +63,13 @@
             document.getElementById("contador").textContent = (30 - palabras.length) + " palabras restantes";
         };
 
+        // Lógica de validación y envío a WhatsApp
         document.getElementById("formulario").onsubmit = function (e) {
             e.preventDefault();
 
-            if (Number(document.getElementById("INGRESA AQUI SEGUN TUS CONOCIMIENTOS EL RESULTADO ").value) !== a + b) {
-                alert("Captcha incorrecto");
+            // CORRECCIÓN: Se cambió el ID al correcto ("respuesta")
+            if (Number(document.getElementById("respuesta").value) !== a + b) {
+                alert("Captcha incorrecto. Intenta de nuevo.");
                 return;
             }
 
@@ -78,5 +81,19 @@
             window.open("https://wa.me/527571337825?text=" + encodeURIComponent(texto));
         };
     </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6ac5500fb7693834c1d4045b/1k49c1f7r';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
